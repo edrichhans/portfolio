@@ -1,0 +1,33 @@
+extends layout
+
+block content
+	h1.center= title
+
+	.center
+		.add-button
+				button.waves-effect.waves-light.btn.red(onclick="showAlbumForm()") Add a new album
+		.add-button
+				button.waves-effect.waves-light.btn.red(onclick="showImageForm()") Add a new image
+
+
+	form#formAddAlbum.admin-form(name="addAlbum", method="post", action="/addalbum", style="display: none")
+		h1 Add Album
+		input#inputImageCaption(type="text", placeholder="Title", name="albumName")
+		button#btnSubmit(type="Submit") submit
+
+	form#formAddImage.admin-form(name="addImage", method="post", action="/addimage", style="display: none")
+		h1 Add Image
+		input#inputImageLink(type="text", placeholder="URL", name="imageLink")
+		input#inputImageCaption(type="text", placeholder="Title", name="caption")
+		button#btnSubmit(type="Submit") submit
+
+
+	script.
+		showImageForm = function(){
+			document.getElementById('formAddAlbum').style.display = 'none';
+			document.getElementById('formAddImage').style.display = 'block';
+		};
+		showAlbumForm = function(){
+			document.getElementById('formAddAlbum').style.display = 'block';
+			document.getElementById('formAddImage').style.display = 'none';
+		};

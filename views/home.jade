@@ -1,0 +1,68 @@
+extends layout
+
+block content
+	#page1
+		#about
+		nav.nav-override
+			.nav-wrapper
+				a.brand-logo.center#logo(href='#') Logo
+					ul#nav-mobile.left.hide-on-med-and-down
+						li
+							a.smoothScroll(href='#about') About
+						li
+							a.smoothScroll(href='#contact') Contact
+						li
+							a.smoothScroll(href='#portfolio') Portfolio
+		h1.center#home-head Hello.
+		#start-button.center
+			a.waves-effect.waves-light.btn.red(href='#contact') Get Started
+	#page2
+		#contact
+			h1.center#who-head Who am I?
+			.inline-div
+				p(align='center') I am a photographer focusing on no specific field, as I like to explore different fields of photography to be able to bring out the most of my creativity.
+			.inline-div
+				p(align='center') I'm also a musician, from the band 'Hot Bandesal'. I play the guitar, bass, drums, and do backup vocals. I engineer all our recordings and am still learning more about the production phase.
+			.inline-div
+				p(align='center') I'm also learning to develop websites, apps, and learn more about the computer science world.
+	#page3
+		#portfolio
+			h1.center#gallery-head Gallery
+			.gallery-text
+				h4 Lorem Ipsum
+				p.
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent laoreet est vel nisi rhoncus, et pellentesque ipsum efficitur. Cras dictum fermentum tellus eu euismod. Etiam et imperdiet nibh, in convallis purus. Quisque vulputate, neque ac pretium mollis, nisi nulla hendrerit enim, ac rhoncus tortor nulla nec ligula. Aliquam lectus mi, ullamcorper eget consectetur non, aliquam et justo. Aenean nec lobortis lorem. Praesent sed nisl quis leo tempor sollicitudin ac sed velit. Nullam sit amet purus sit amet turpis vehicula laoreet a vitae neque.
+			#container
+				ul.gallery
+					li
+						a.pic-1.border(href='#SIYpporo2016')
+							img(src='https://farm2.staticflickr.com/1640/25554840014_3808f85ac2_k.jpg', alt='#SIYpporo2016')
+							.polaroid-text.center
+								|	#Siypporo2016
+					li
+						a.pic-2.border(href='#trinketbar')
+							img(src='https://farm2.staticflickr.com/1582/25883286936_8cb0b21aa8_k.jpg', alt='Trinket Bar product Shoot')
+							.polaroid-text.center
+								|	Trinket Bar
+					li
+						a.pic-3.border(href='#Anne')
+							img(src='https://farm2.staticflickr.com/1589/25218691774_b461ca20ed_k.jpg', alt='Anne pre-Debut')
+							.polaroid-text.center
+								|	Anne pre-Debut
+					li
+						a.pic-4.border(href='#IGNITION')
+							img(src='https://farm2.staticflickr.com/1519/25551406166_9e6d8a925a_k.jpg', alt= 'IGNITION')
+							.polaroid-text.center
+								|	Automized IGNITION
+					li
+						a.pic-5.border(href='#UPFair')
+							img(src='https://farm6.staticflickr.com/5629/20972601448_025763a6ac_k.jpg', alt='UP Fair')
+							.polaroid-text.center
+								|	UP Fair
+					li
+						a.pic-6.border(href='#Creative')
+							img(src='https://farm2.staticflickr.com/1533/24740947460_34f80b7c47_k.jpg', alt= 'Creative')
+							.polaroid-text.center
+								|	Creative
+	#page4
+		#SIYpporo2016
