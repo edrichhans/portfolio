@@ -1,0 +1,28 @@
+#border-wrapper
+	img(src='/images/horizontal_border.png')
+
+a.arrow-bounce(href="#")
+	#arrow-text.center
+		| View Gallery
+	.center
+		img(src='/images/arrow-down.png')
+
+#enter(style='padding: 3%;')
+
+ul.gallery-container
+	each image, i in imageList
+		li
+			.caption(class="click-"+image._id)
+				.center.caption-text= image.caption
+			img(src=image.imageLink, border="3", class="click-"+image._id)
+
+hr#end-line
+.footer
+	span.footer-content
+		a.footer-product-link(href='https://github.com/njdelima/snapGallery', target='_blank')
+			i.fa.fa-github.fa-3x
+	span.footer-content
+		a.footer-personal-link(href='/home') Home
+		| 
+		| © Developed by Edrich Chua | 
+		a.footer-personal-link(href='https://github.com/njdelima') Gallery Format

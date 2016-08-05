@@ -1,0 +1,35 @@
+script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js')
+script(src='js/snapGallery.js')
+script.
+	const c = 3;
+	const w = 0;
+	const m = 10;
+	$(function() {
+		$(window).load(function() {
+			$('.gallery-container').snapGallery({
+				minWidth: w,
+				maxCols: c,
+				margin: m
+			});
+		});
+	})
+script.
+	$(".arrow-bounce").click(function() {
+		$('html, body').animate({
+			scrollTop: $("#enter").offset().top
+		}, 1000);
+	});
+script.
+	var data = !{JSON.stringify(imageList)}
+	for(let i = 0; i < data.length; i++){
+		$(".click-"+data[i]._id).click(function(){
+			$('#'+data[i]._id).fadeIn(1000);
+			$('#overlay-back').fadeIn(500);
+		});
+	}
+	$('html').click(function(e) {
+		if(!$(e.target).hasClass('popup-image') && !$(e.target).hasClass('caption') && !$(e.target).hasClass('caption-text')){
+			$('.popup-image-wrapper').fadeOut(500);
+			$('#overlay-back').fadeOut(300);
+		}
+	}); 

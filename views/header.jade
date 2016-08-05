@@ -1,0 +1,48 @@
+doctype html
+html(lang='en')
+	head
+		meta(charset='utf-8')
+		meta(name='viewport', content='width=device-width, initial-scale=1')
+		meta(name='description', content='')
+		link(href='https://fonts.googleapis.com/css?family=Montserrat:400,700', rel='stylesheet', type='text/css')
+		link(href='https://fonts.googleapis.com/css?family=PT+Sans:400,700', rel='stylesheet', type='text/css')
+		link(href='https://fonts.googleapis.com/css?family=Oswald:400,300', rel='stylesheet', type='text/css')
+		link(href='https://fonts.googleapis.com/css?family=Roboto', rel='stylesheet', type='text/css')
+		link(href='https://fonts.googleapis.com/css?family=Open+Sans:400,300&subset=latin,greek,greek-ext,vietnamese,cyrillic-ext,latin-ext,cyrillic', rel='stylesheet', type='text/css')
+		link(href='https://fonts.googleapis.com/css?family=Open+Sans:400,300&subset=latin,greek,greek-ext,vietnamese,cyrillic-ext,latin-ext,cyrillic', rel='stylesheet', type='text/css')
+		link(href='https://fonts.googleapis.com/css?family=Permanent+Marker', rel='stylesheet', type='text/css')
+		link(href='https://fonts.googleapis.com/css?family=Montserrat:400,700|Ubuntu:700,300' rel='stylesheet' type='text/css')
+		link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css')
+		link(type='text/css', rel='stylesheet', href='css/materialize.min.css', media='screen, projection')
+		script(type='text/javascript', src='https://code.jquery.com/jquery-2.1.1.min.js')
+		script(type='text/javascript', src='/js/materialize.min.js')
+		script(type='text/javascript', src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js')
+		link(rel='stylesheet', href='/css/style1.css')
+		link(rel='stylesheet', type='text/css', href='css/main.css')
+		script.
+			jQuery(document).ready(function($) {	
+				$(window).load(function(){
+					$('#preloader').fadeOut('slow',function(){$(this).remove();});
+				});
+			});
+			document.title = (location.pathname.substring(location.pathname.lastIndexOf("/") + 1)).replace('.html','');
+	body
+		#preloader
+		nav.nav-override(style="z-index:600;")
+			.nav-wrapper
+				a.brand-logo.center#logo(href='#') Logo
+					ul#nav-mobile.left.hide-on-med-and-down
+						li
+							a(href="/home").home-button Home
+						li
+							a(href="/home#about").about-button About
+						li
+							a(href="/home#portfolio").portfolio-button Portfolio
+		#pad(style="height: 100%;")
+			each image, i in imageList
+				div.popup-image-wrapper(id= image._id)
+					img.popup-image(src=image.imageLink, border="1")
+					.center
+						h5= image.caption
+			div#overlay-back
+			block content

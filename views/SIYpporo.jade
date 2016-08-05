@@ -1,0 +1,55 @@
+extends header
+
+block content
+	.main-wrapper
+		h1.center#album-header #SIYpporo2016
+		p
+			| Landscape shoot while in Hokkaido, Japan tour with SIY Family
+			br
+			| Places feature Lake Shikotsu, Noboribetsu, Shiroi Koibito, Onuma National Park, and Fudou no Taki in Biei
+			br
+			| Nikon D750. 15mm f/5.6.
+			br
+			br
+			| 03-2016
+
+		include ./includes/album-body.jade
+	include ./includes/album-script.jade
+		//- script.
+		//- 	$(function() {
+		//- 		$(document).ready(function() {
+		//- 			$("#main-toggle").change(function() {
+		//- 				if (this.checked) {
+		//- 					$('#gallery-container').snapGallery({
+		//- 						minWidth: parseInt($('#width-spec').val()),
+		//- 						maxCols: parseInt($('#columns-spec').val()),
+		//- 						margin: parseInt($('#margin-spec').val())
+		//- 					});
+		//- 				} else {
+		//- 					$('#gallery-container').removeAttr('style');
+		//- 					$('#gallery-container *').removeAttr('style');
+		//- 				}
+		//- 			});
+		//- 			$("#width-spec").change(function() {
+		//- 				$('#gallery-container').snapGallery({
+		//- 					minWidth: parseInt($(this).val()),
+		//- 					maxCols: parseInt($('#columns-spec').val()),
+		//- 					margin: parseInt($('#margin-spec').val())
+		//- 				});
+		//- 			});
+		//- 			$("#columns-spec").change(function() {
+		//- 				$('#gallery-container').snapGallery({
+		//- 					maxCols: parseInt($(this).val()),
+		//- 					minWidth: parseInt($('#width-spec').val()),
+		//- 					margin: parseInt($('#margin-spec').val())
+		//- 				});
+		//- 			});
+		//- 			$('#margin-spec').change(function() {
+		//- 				$('#gallery-container').snapGallery({
+		//- 					margin: parseInt($(this).val()),
+		//- 					minWidth: parseInt($('#width-spec').val()),
+		//- 					maxCols: parseInt($('#columns-spec').val())
+		//- 				});
+		//- 			});
+		//- 		});
+		//- 	});

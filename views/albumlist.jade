@@ -1,0 +1,10 @@
+extends layout
+
+block content
+	h1.
+		Album List
+	ul
+		each album, i in albumList
+			li
+				h3
+					a(href='#')= album.name
