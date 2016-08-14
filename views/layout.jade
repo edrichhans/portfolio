@@ -2,6 +2,7 @@ doctype html
 html
 	head
 		title= 'Edrich Hans Chua | Photographer | Web Developer'
+		link(rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico")
 		link(type='text/css', rel='stylesheet', href='css/materialize.min.css', media='screen, projection')
 		link(rel='stylesheet', href='/css/style.css')
 		link(rel='stylesheet', href='/css/style1.css')
@@ -19,8 +20,8 @@ html
 	body
 		#preloader
 		nav.nav-override
+			img.brand-logo.center#logo(src='/images/Logo.png', style='height: 100%;')
 			.nav-wrapper
-				a.brand-logo.center#logo(href='#') Logo
 				ul#nav-mobile.left.hide-on-med-and-down
 					li
 						a(href="/home#").nav-button.home-button Home

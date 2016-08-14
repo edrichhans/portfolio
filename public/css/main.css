@@ -109,6 +109,9 @@ body {
 .nav-wrapper{
 	background: rgba(0, 0, 0, 0.4);
 }
+.nav-override{
+	position: fixed;
+}
 
 h1 {
 	font-family: 'Open Sans', sans-serif;

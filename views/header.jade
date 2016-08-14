@@ -1,6 +1,7 @@
 doctype html
 html(lang='en')
 	head
+		link(rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico")
 		meta(charset='utf-8')
 		meta(name='viewport', content='width=device-width, initial-scale=1')
 		meta(name='description', content='')
@@ -29,8 +30,8 @@ html(lang='en')
 	body
 		#preloader
 		nav.nav-override(style="z-index:600;")
+			img.brand-logo.center#logo(src='/images/Logo.png', style='height: 100%; z-index: 1;')
 			.nav-wrapper
-				a.brand-logo.center#logo(href='#') Logo
 				ul#nav-mobile.left.hide-on-med-and-down
 					li
 						a(href="/home").nav-button Home
