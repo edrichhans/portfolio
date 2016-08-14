@@ -28,6 +28,24 @@ input{
 	margin: auto;
 }
 
+
+.arrow-bounce {
+	position: absolute;
+	margin: 0;
+	bottom: 0;
+	left: 0; right: 0;
+	width: 100%;
+	font-size: 40px;
+	line-height: 40px;
+	-webkit-animation: bounce 2s infinite ease-in-out;
+}
+
+@-webkit-keyframes bounce {
+	0%, 20%, 60%, 100%	{ -webkit-transform: translateY(0); }
+		40%	{ -webkit-transform: translateY(-20px); }
+	80% { -webkit-transform: translateY;(-10px); }
+}
+
 .main {
 	float: left;
 	width: 100%;
@@ -49,10 +67,23 @@ input{
 	z-index: 3;
 }
 
+.nav-button{
+	font-size: 1.2vw;
+}
+
+.nav-wrapper{
+	padding: 3vh 2em;
+}
+
 .nav-override{
-	background: rgba(0, 0, 0, 0.5);
-	position: fixed;
+	background: rgba(0, 0, 0, 0.4);
+	position: absolute;
 	z-index: 1;
+	height: 14%;
+}
+
+.nav-wrapper ul li{
+	padding: 0 0.3em;
 }
 
 #z-fix{
@@ -81,7 +112,7 @@ input{
 
 #about{
 	position: relative;
-	height: 110%;
+	height: 100%;
 	width: auto;
 	background:#eee;
 }
@@ -111,10 +142,10 @@ input{
 #home-head{
 	position: absolute;
 	margin: auto;
-	padding-top: 15%; 
+	padding-top: 35vh; 
 	font-family: 'Open Sans', sans-serif;
 	font-weight: 300;
-	font-size: 7em;
+	font-size: 6vw;
 	color: #fff;
 	text-shadow: 2px 3px 3px rgba(0, 0, 0, 0.8);
 	top: 0; bottom: 0; left: 0; right: 0;
@@ -148,7 +179,7 @@ input{
 
 #gallery-head{
 	margin: 0px !important;
-	padding-top: 1em;
+	padding: 0.5em 0;
 	color: #EEE;
 	text-shadow: 2px 3px 3px rgba(0, 0, 0, 0.6);
 }
@@ -165,10 +196,10 @@ ul{
 
 .gallery-text{
 	color: #FFF;
-	padding: 1%;
+	padding: 0 1%;
 	float: left;
 	width: 29%;
-	margin: 2% 3%;
+	margin: 0 3%;
 	text-shadow: 2px 3px 3px rgba(0, 0, 0, 0.6);
 }
 

@@ -31,13 +31,13 @@ html(lang='en')
 		nav.nav-override(style="z-index:600;")
 			.nav-wrapper
 				a.brand-logo.center#logo(href='#') Logo
-					ul#nav-mobile.left.hide-on-med-and-down
-						li
-							a(href="/home").home-button Home
-						li
-							a(href="/home#about").about-button About
-						li
-							a(href="/home#portfolio").portfolio-button Portfolio
+				ul#nav-mobile.left.hide-on-med-and-down
+					li
+						a(href="/home").nav-button Home
+					li
+						a(href="/home#about").nav-button About
+					li
+						a(href="/home#portfolio").nav-button Portfolio
 		#pad(style="height: 100%;")
 			each image, i in imageList
 				div.popup-image-wrapper(id= image._id)

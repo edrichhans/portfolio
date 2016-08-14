@@ -13,12 +13,15 @@ block content
 			p(align='center') I'm also a musician, from the band 'Hot Bandesal'. I play the guitar, bass, drums, and do backup vocals. I engineer all our recordings and am still learning more about the production phase.
 		.inline-div
 			p(align='center') I'm also learning to develop websites, apps, and learn more about the computer science world.
+
+		a.arrow-bounce.portfolio(href="#")
+			.right-align
+				img(src='/images/arrow-down.png', style='width=7%; padding: 3% 5%;')
+
 	#portfolio
 		h1.center#gallery-head Gallery
 		.gallery-text
-			h4 Lorem Ipsum
-			p.
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent laoreet est vel nisi rhoncus, et pellentesque ipsum efficitur. Cras dictum fermentum tellus eu euismod. Etiam et imperdiet nibh, in convallis purus. Quisque vulputate, neque ac pretium mollis, nisi nulla hendrerit enim, ac rhoncus tortor nulla nec ligula. Aliquam lectus mi, ullamcorper eget consectetur non, aliquam et justo. Aenean nec lobortis lorem. Praesent sed nisl quis leo tempor sollicitudin ac sed velit. Nullam sit amet purus sit amet turpis vehicula laoreet a vitae neque.
+			img(src='/images/art.jpg', style='width: 100%;')
 		#container
 			ul.gallery
 				li
@@ -63,6 +66,11 @@ block content
 			}, 1000);
 		});
 		$(".portfolio-button").click(function() {
+			$('html, body').animate({
+				scrollTop: $("#portfolio").offset().top
+			}, 1000);
+		});
+		$(".arrow-bounce").click(function() {
 			$('html, body').animate({
 				scrollTop: $("#portfolio").offset().top
 			}, 1000);

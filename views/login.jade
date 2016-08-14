@@ -1,0 +1,9 @@
+extends layout
+
+block content
+
+	div(style="padding:20%;")
+		form(method="POST", name='login', action='/login')
+			input(type='text', placeholder='email', name='email')
+			input(type='password', placeholder='password', name='password')
+			button.waves-effect.waves-light.btn.red.center#btnSubmit(type="Submit") submit

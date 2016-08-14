@@ -69,23 +69,6 @@ html, body{
 	color: white;
 }
 
-.arrow-bounce {
-	position: absolute;
-	margin: 0;
-	bottom: 0;
-	left: 0; right: 0;
-	width: 100%;
-	font-size: 40px;
-	line-height: 40px;
-	-webkit-animation: bounce 2s infinite ease-in-out;
-}
-
-@-webkit-keyframes bounce {
-	0%, 20%, 60%, 100%	{ -webkit-transform: translateY(0); }
-		40%	{ -webkit-transform: translateY(-20px); }
-	80% { -webkit-transform: translateY;(-10px); }
-}
-
 #album-header{
 	font-family: "Montserrat", sans-serif;
 	font-weight: 700;
@@ -123,8 +106,8 @@ body {
 	padding: 0px 10% 25px 10%;
 }
 
-.nav-override{
-	background: rgba(255, 255, 255, 0.2);
+.nav-wrapper{
+	background: rgba(0, 0, 0, 0.4);
 }
 
 h1 {

@@ -2,9 +2,17 @@ var express = require('express');
 var router = express.Router();
 var sort = {"sort" : {"_id" : 1}};
 
+function requireLogin (req, res, next) {
+	if (!req.user) {
+		res.redirect('/login');
+	} else {
+		next();
+	}
+};
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+	res.render('index', { title: 'Express' });
 });
 
 router.get('/home', function(req, res){
@@ -22,8 +30,35 @@ router.get('/albumlist', function(req, res){
 	});
 });
 
-//GET addimage page
-router.get('/addimage', function(req, res){			// localhost:3000/addimage 
+router.all('/addimage', function(req, res, next) {
+	var db = req.db;
+	var users = db.get('users');
+	if (req.session && req.session.user) {
+		users.findOne({ email: req.session.user.email }, function(err, user) {
+			if (user) {
+				req.user = user;
+				delete req.user.password; // delete the password from the session
+				req.session.user = user;	//refresh the session value
+				res.locals.user = user;
+			}
+			// finishing processing the middleware and run the route
+			next();
+		});
+	} else {
+		next();
+	}
+});
+
+function requireLogin (req, res, next) {
+	if (!req.user) {
+		res.redirect('/login');
+	} else {
+		next();
+	}
+};
+
+// GET addimage page
+router.get('/addimage', requireLogin, function(req, res){			// localhost:3000/addimage 
 	var db = req.db;
 	var collection = db.get('albumcollection');
 	collection.find({},{},function(e,docs){
@@ -103,23 +138,15 @@ router.get('/demo', function(req, res){
 	res.render('demo', {title : "Album"});
 });
 
-//===================== POST STARTS HERE=====================================================
-router.post('/addalbum', function(req, res){
-	var db = req.db;
-	var albumName = req.body.albumName;
-	var albumcollection = db.get("albumcollection");
-	albumcollection.insert({
-		"name" : albumName
-	}, function(err, doc){
-		if(err){
-			res.send("There was a problem adding the information to the database.");
-		}
-		else{
-			res.redirect("albumlist");
-		}
-	});
+router.get('/login', function(req, res){
+	res.render('login');
 });
 
+router.get('/logout', function(req, res) {
+	req.session.reset();
+	res.redirect('/home');
+});
+//===================== POST STARTS HERE=====================================================
 router.post('/addimage', function(req, res){
 	var db = req.db;
 
@@ -132,7 +159,6 @@ router.post('/addimage', function(req, res){
 	var albumcollection = db.get("albumcollection");
 
 	if(albumName == ""){
-		console.log("pasok hereeee");
 		albumName = other;
 		albumcollection.insert({
 			"name" : albumName
@@ -160,6 +186,34 @@ router.post('/addimage', function(req, res){
 		}
 	}
 	res.redirect("albumlist");
+});
+
+// var authorize = function(req, res, next){
+// 	if(req.session && req.session.user){
+// 		next();
+// 	} else {
+// 		return res.send(401);
+// 	}
+
+// };
+
+router.post('/login', function(req, res) {
+	console.log("HO");
+	var db = req.db;
+	var users = db.get("users");
+	users.findOne({"username": req.body.email }, function(err, user) {
+		if (!user) {
+			res.render('login', { error: 'Invalid email or password.' });
+		} else {
+			if (req.body.password === user.password) {
+				// sets a cookie with the user's info
+				req.session.user = user;
+				res.redirect('/addimage');
+			} else {
+				res.render('login', { error: 'Invalid email or password.' });
+			}
+		}
+	});
 });
 
 module.exports = router;
